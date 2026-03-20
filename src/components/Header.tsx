@@ -89,7 +89,7 @@ export default function Header() {
               }}
             >
               <Phone className="w-4 h-4" />
-              1899-8384
+              1588-2092
             </a>
             <a
               href="#contact"

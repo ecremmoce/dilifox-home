@@ -72,7 +72,7 @@ export default function Contact() {
                 {
                   icon: Phone,
                   label: "전화 문의",
-                  value: "1899-8384",
+                  value: "1588-2092",
                   sub: "평일 09:00 ~ 18:00",
                 },
                 {

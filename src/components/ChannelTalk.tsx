@@ -51,7 +51,7 @@ export default function ChannelTalk() {
     })();
 
     window.ChannelIO?.("boot", {
-      pluginKey: "YOUR_PLUGIN_KEY", // TODO: 실제 채널톡 플러그인 키로 교체
+      pluginKey: "a62db4eb-d889-4e35-9c74-aa1e7fb59aee",
     });
   }, []);
 
