@@ -78,14 +78,14 @@ export default function Contact() {
                 {
                   icon: Mail,
                   label: "이메일",
-                  value: "contact@dilifox.com",
+                  value: "dilifox1@gmail.com",
                   sub: "24시간 접수 가능",
                 },
                 {
                   icon: MapPin,
                   label: "본사 위치",
-                  value: "서울특별시 강남구",
-                  sub: "물류센터: 경기도 이천시",
+                  value: "인천시 서구 북항로 132",
+                  sub: "인천시 서구 북항로 132",
                 },
               ].map((info) => (
                 <div key={info.label} className="flex items-start gap-4">

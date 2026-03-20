@@ -27,11 +27,11 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-orange-500" />
-                <span>contact@dilifox.com</span>
+                <span>dilifox1@gmail.com</span>
               </div>
               <div className="flex items-center gap-3">
                 <MapPin className="w-4 h-4 text-orange-500" />
-                <span>서울특별시 강남구</span>
+                <span>인천시 서구 북항로 132</span>
               </div>
             </div>
           </div>
