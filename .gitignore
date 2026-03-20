@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# nano-banana-pro
+.claude/skills/nano-banana-pro/venv/
+.claude/skills/nano-banana-pro/.env
+
+# bkit state
+.bkit/state/
+generated_images/

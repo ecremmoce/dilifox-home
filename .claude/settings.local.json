@@ -1,0 +1,5 @@
+{
+  "env": {
+    "CCSKILL_NANOBANANA_DIR": ".claude/skills/nano-banana-pro"
+  }
+}
