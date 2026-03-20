@@ -97,7 +97,9 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.45 }}
         >
-          국내 구매부터 해외 출고까지, 당일 원스톱 물류 대행 &middot; 항공특송부터 3PL 풀필먼트, 상품공급·판매까지
+          국내 구매부터 해외 출고까지, 당일 원스톱 물류 대행
+          <br />
+          항공특송부터 3PL 풀필먼트, 상품공급·판매까지
         </motion.p>
 
         {/* CTA Button */}
