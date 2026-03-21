@@ -10,34 +10,37 @@ import {
   CheckCircle2,
   ArrowRight,
 } from "lucide-react";
-
-const pains = [
-  { icon: AlertTriangle, text: "재고 부담이 너무 커요" },
-  { icon: Clock, text: "물류 처리에 시간을 너무 써요" },
-  { icon: TruckIcon, text: "해외 배송이 자꾸 지연돼요" },
-  { icon: FileWarning, text: "통관 절차가 너무 복잡해요" },
-  { icon: ShieldAlert, text: "상품 품질 리스크가 걱정돼요" },
-];
-
-const solutions = [
-  {
-    step: "STEP 01",
-    title: "주문만 하세요",
-    description: "온라인으로 간편하게 접수하면 나머지는 Dilifox가 처리합니다.",
-  },
-  {
-    step: "STEP 02",
-    title: "검수·포장은 저희가",
-    description: "전문 인력이 꼼꼼하게 검수하고 안전하게 포장합니다.",
-  },
-  {
-    step: "STEP 03",
-    title: "전 세계로 출고",
-    description: "최적 경로로 빠르고 안전하게 전 세계 어디든 배송합니다.",
-  },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export default function PainSolution() {
+  const { t } = useLanguage();
+
+  const pains = [
+    { icon: AlertTriangle, text: t("pain.1") },
+    { icon: Clock, text: t("pain.2") },
+    { icon: TruckIcon, text: t("pain.3") },
+    { icon: FileWarning, text: t("pain.4") },
+    { icon: ShieldAlert, text: t("pain.5") },
+  ];
+
+  const solutions = [
+    {
+      step: "STEP 01",
+      title: t("pain.sol1.title"),
+      description: t("pain.sol1.desc"),
+    },
+    {
+      step: "STEP 02",
+      title: t("pain.sol2.title"),
+      description: t("pain.sol2.desc"),
+    },
+    {
+      step: "STEP 03",
+      title: t("pain.sol3.title"),
+      description: t("pain.sol3.desc"),
+    },
+  ];
+
   return (
     <section className="min-h-screen flex items-center bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
@@ -49,10 +52,10 @@ export default function PainSolution() {
           transition={{ duration: 0.6 }}
         >
           <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">
-            Why Dilifox
+            {t("pain.sectionLabel")}
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mt-3 mb-5">
-            이런 고민, 하고 계신가요?
+            {t("pain.title")}
           </h2>
         </motion.div>
 
@@ -68,12 +71,12 @@ export default function PainSolution() {
               <span className="w-10 h-10 bg-red-100 rounded-xl flex items-center justify-center">
                 <AlertTriangle className="w-5 h-5 text-red-500" />
               </span>
-              셀러들의 5대 고민
+              {t("pain.painTitle")}
             </h3>
             <div className="space-y-4">
               {pains.map((pain, index) => (
                 <motion.div
-                  key={pain.text}
+                  key={index}
                   className="flex items-center gap-4 bg-red-50/50 border border-red-100 rounded-xl px-5 py-4 group hover:bg-red-50 transition-colors"
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -100,7 +103,7 @@ export default function PainSolution() {
               <span className="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center">
                 <CheckCircle2 className="w-5 h-5 text-green-500" />
               </span>
-              Dilifox 솔루션
+              {t("pain.solTitle")}
             </h3>
             <div className="space-y-6">
               {solutions.map((sol, index) => (

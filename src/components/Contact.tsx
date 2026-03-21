@@ -3,8 +3,10 @@
 import { motion } from "framer-motion";
 import { Send, Phone, Mail, MapPin } from "lucide-react";
 import { useState } from "react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export default function Contact() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,7 +17,7 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert("문의가 접수되었습니다. 빠른 시일 내에 연락드리겠습니다.");
+    alert(t("contact.alert"));
   };
 
   return (
@@ -46,10 +48,10 @@ export default function Contact() {
             transition={{ duration: 0.6 }}
           >
             <span className="text-orange-400 font-semibold text-sm tracking-wider uppercase">
-              Get Started
+              {t("contact.label")}
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-3 mb-6">
-              지금 바로
+              {t("contact.title1")}
               <br />
               <span
                 style={{
@@ -58,34 +60,33 @@ export default function Contact() {
                   WebkitTextFillColor: "transparent",
                 }}
               >
-                무료 상담
+                {t("contact.title2")}
               </span>
-              을 시작하세요
+              {t("contact.title3")}
             </h2>
             <p className="text-slate-300 text-lg mb-10 leading-relaxed">
-              물류 전문가가 비즈니스에 최적화된 솔루션을 무료로 제안해
-              드립니다. 부담 없이 문의해 주세요.
+              {t("contact.subtitle")}
             </p>
 
             <div className="space-y-6">
               {[
                 {
                   icon: Phone,
-                  label: "전화 문의",
+                  label: t("contact.phone"),
                   value: "1588-2092",
-                  sub: "평일 09:00 ~ 18:00",
+                  sub: t("contact.phone.sub"),
                 },
                 {
                   icon: Mail,
-                  label: "이메일",
+                  label: t("contact.email"),
                   value: "dilifox1@gmail.com",
-                  sub: "24시간 접수 가능",
+                  sub: t("contact.email.sub"),
                 },
                 {
                   icon: MapPin,
-                  label: "본사 위치",
-                  value: "인천시 서구 북항로 132",
-                  sub: "인천시 서구 북항로 132",
+                  label: t("contact.location"),
+                  value: t("contact.location.sub"),
+                  sub: t("contact.location.sub"),
                 },
               ].map((info) => (
                 <div key={info.label} className="flex items-start gap-4">
@@ -118,17 +119,17 @@ export default function Contact() {
               className="bg-white rounded-3xl p-8 shadow-2xl w-full"
             >
               <h3 className="text-2xl font-bold text-slate-900 mb-6">
-                무료 상담 신청
+                {t("contact.formTitle")}
               </h3>
 
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1">
-                    이름
+                    {t("contact.name")}
                   </label>
                   <input
                     type="text"
-                    placeholder="홍길동"
+                    placeholder={t("contact.namePlaceholder")}
                     className="w-full px-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 transition-all"
                     value={formData.name}
                     onChange={(e) =>
@@ -139,7 +140,7 @@ export default function Contact() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-1">
-                      이메일
+                      {t("contact.emailLabel")}
                     </label>
                     <input
                       type="email"
@@ -153,11 +154,11 @@ export default function Contact() {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-1">
-                      연락처
+                      {t("contact.phoneLabel")}
                     </label>
                     <input
                       type="tel"
-                      placeholder="010-0000-0000"
+                      placeholder={t("contact.phonePlaceholder")}
                       className="w-full px-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 transition-all"
                       value={formData.phone}
                       onChange={(e) =>
@@ -168,7 +169,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1">
-                    관심 서비스
+                    {t("contact.serviceLabel")}
                   </label>
                   <select
                     className="w-full px-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 transition-all text-slate-600"
@@ -177,20 +178,19 @@ export default function Contact() {
                       setFormData({ ...formData, service: e.target.value })
                     }
                   >
-                    <option value="">서비스를 선택해주세요</option>
-                    <option value="항공특송">항공특송</option>
-                    <option value="3PL">3PL 풀필먼트</option>
-                    <option value="상품공급">상품공급·판매</option>
-                    <option value="기타">기타</option>
+                    <option value="">{t("contact.servicePlaceholder")}</option>
+                    <option value="air">{t("service.air.title")}</option>
+                    <option value="3pl">{t("service.3pl.title")}</option>
+                    <option value="sales">{t("service.sales.title")}</option>
                   </select>
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1">
-                    문의 내용
+                    {t("contact.messageLabel")}
                   </label>
                   <textarea
                     rows={4}
-                    placeholder="문의하실 내용을 자유롭게 적어주세요."
+                    placeholder={t("contact.messagePlaceholder")}
                     className="w-full px-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 transition-all resize-none"
                     value={formData.message}
                     onChange={(e) =>
@@ -208,11 +208,11 @@ export default function Contact() {
                 }}
               >
                 <Send className="w-5 h-5" />
-                무료 상담 신청하기
+                {t("contact.submit")}
               </button>
 
               <p className="text-slate-400 text-xs text-center mt-4">
-                영업일 기준 24시간 이내 답변을 드립니다.
+                {t("contact.notice")}
               </p>
             </form>
           </motion.div>

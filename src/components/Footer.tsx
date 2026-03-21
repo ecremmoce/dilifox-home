@@ -1,12 +1,17 @@
-import { Plane, Phone, Mail, MapPin } from "lucide-react";
+"use client";
 
-const footerLinks = {
-  서비스: ["항공특송", "3PL 풀필먼트", "상품공급·판매", "라이브 방송판매"],
-  지원: ["FAQ", "이용약관", "개인정보처리방침", "파트너 제휴"],
-  회사소개: ["Dilifox 소개", "오시는 길", "채용정보", "블로그"],
-};
+import { Phone, Mail, MapPin } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
+
+  const footerLinks = {
+    [t("footer.services")]: [t("service.air.title"), t("service.3pl.title"), t("service.sales.title")],
+    [t("footer.support")]: ["FAQ", t("nav.tracking")],
+    [t("footer.company")]: ["Dilifox"],
+  };
+
   return (
     <footer className="bg-slate-900 text-slate-400">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -17,8 +22,7 @@ export default function Footer() {
               <img src="/logo.png" alt="Dilifox" className="h-12 w-auto brightness-0 invert" />
             </a>
             <p className="text-slate-400 leading-relaxed mb-6 max-w-sm">
-              글로벌 물류의 새로운 기준. 항공특송, 3PL 풀필먼트,
-              상품공급·판매까지 원스톱 물류 서비스를 제공합니다.
+              {t("footer.desc")}
             </p>
             <div className="space-y-3">
               <div className="flex items-center gap-3">
@@ -31,7 +35,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-3">
                 <MapPin className="w-4 h-4 text-orange-500" />
-                <span>인천시 서구 북항로 132</span>
+                <span>{t("contact.location.sub")}</span>
               </div>
             </div>
           </div>
@@ -62,7 +66,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Dilifox. All rights reserved.
           </p>
           <p className="text-sm text-slate-500">
-            평일 09:00 ~ 18:00 | 주말·공휴일 휴무
+            {t("footer.hours")}
           </p>
         </div>
       </div>

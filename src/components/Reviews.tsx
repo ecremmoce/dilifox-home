@@ -2,38 +2,38 @@
 
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
-
-const reviews = [
-  {
-    name: "김성호",
-    role: "이커머스 셀러",
-    years: "3년 이용",
-    content:
-      "Dilifox를 이용한 후 해외 배송 관련 고민이 완전히 해결됐습니다. 미국과 동남아 동시 출고가 가능해지면서 월 매출이 3배 이상 성장했습니다.",
-    highlight: "월 매출 3배 성장",
-    avatar: "KS",
-  },
-  {
-    name: "이준영",
-    role: "브랜드 MD",
-    years: "2년 이용",
-    content:
-      "3PL 풀필먼트 서비스 덕분에 물류 인프라 없이도 전국 당일출고가 가능해졌습니다. 반품률도 80% 이상 감소했고, 고객 만족도가 크게 올랐습니다.",
-    highlight: "반품률 80% 감소",
-    avatar: "LJ",
-  },
-  {
-    name: "박미선",
-    role: "라이브 커머스 사업가",
-    years: "1년 이용",
-    content:
-      "라이브 방송판매와 물류를 한 번에 해결할 수 있어서 정말 편합니다. 방송 후 즉시 출고되니까 고객 만족도가 최고입니다. 강력 추천합니다!",
-    highlight: "방송 후 즉시 출고",
-    avatar: "PM",
-  },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export default function Reviews() {
+  const { t } = useLanguage();
+
+  const reviews = [
+    {
+      name: t("reviews.1.name"),
+      role: t("reviews.1.role"),
+      years: t("reviews.1.years"),
+      content: t("reviews.1.content"),
+      highlight: t("reviews.1.highlight"),
+      avatar: "KS",
+    },
+    {
+      name: t("reviews.2.name"),
+      role: t("reviews.2.role"),
+      years: t("reviews.2.years"),
+      content: t("reviews.2.content"),
+      highlight: t("reviews.2.highlight"),
+      avatar: "LJ",
+    },
+    {
+      name: t("reviews.3.name"),
+      role: t("reviews.3.role"),
+      years: t("reviews.3.years"),
+      content: t("reviews.3.content"),
+      highlight: t("reviews.3.highlight"),
+      avatar: "PM",
+    },
+  ];
+
   return (
     <section id="reviews" className="min-h-screen flex items-center bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
@@ -45,20 +45,20 @@ export default function Reviews() {
           transition={{ duration: 0.6 }}
         >
           <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">
-            Testimonials
+            {t("reviews.label")}
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mt-3 mb-5">
-            고객이 증명하는 서비스
+            {t("reviews.title")}
           </h2>
           <p className="text-slate-500 text-lg max-w-2xl mx-auto">
-            Dilifox와 함께 비즈니스를 성장시킨 고객들의 실제 후기입니다.
+            {t("reviews.subtitle")}
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {reviews.map((review, index) => (
             <motion.div
-              key={review.name}
+              key={index}
               className="relative bg-slate-50 rounded-3xl p-8 hover:shadow-xl transition-shadow group"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}

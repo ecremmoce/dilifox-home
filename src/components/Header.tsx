@@ -1,20 +1,31 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, Search, Phone } from "lucide-react";
+import { Menu, X, Search, Phone, ChevronDown } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
+import { localeNames, Locale } from "@/i18n/translations";
 
-const navItems = [
-  { label: "서비스", href: "#services" },
-  { label: "프로세스", href: "#process" },
-  { label: "실적", href: "#stats" },
-  { label: "고객후기", href: "#reviews" },
-  { label: "FAQ", href: "#faq" },
-  { label: "문의하기", href: "#contact" },
-];
+const localeFlags: Record<Locale, string> = {
+  ko: "🇰🇷",
+  en: "🇺🇸",
+  zh: "🇨🇳",
+  vi: "🇻🇳",
+};
 
 export default function Header() {
+  const { t, locale, setLocale } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
+
+  const navItems = [
+    { label: t("nav.services"), href: "#services" },
+    { label: t("nav.process"), href: "#process" },
+    { label: t("nav.stats"), href: "#stats" },
+    { label: t("nav.reviews"), href: "#reviews" },
+    { label: t("nav.faq"), href: "#faq" },
+    { label: t("nav.contact"), href: "#contact" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -79,8 +90,46 @@ export default function Header() {
               }}
             >
               <Search className="w-4 h-4" />
-              송장검색
+              {t("nav.tracking")}
             </a>
+
+            {/* Language Switcher */}
+            <div className="relative">
+              <button
+                onClick={() => setLangOpen(!langOpen)}
+                className="flex items-center gap-1.5 text-sm font-medium px-3 py-1.5 rounded-lg transition-colors"
+                style={{
+                  color: scrolled ? "#475569" : "rgba(255,255,255,0.85)",
+                  background: scrolled ? "rgba(241,245,249,0.8)" : "rgba(255,255,255,0.1)",
+                }}
+              >
+                <span>{localeFlags[locale]}</span>
+                <span>{localeNames[locale]}</span>
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform ${langOpen ? "rotate-180" : ""}`} />
+              </button>
+              {langOpen && (
+                <div
+                  className="absolute right-0 top-full mt-1 bg-white rounded-lg shadow-lg border border-slate-200 py-1 min-w-[140px] z-50"
+                >
+                  {(Object.keys(localeNames) as Locale[]).map((loc) => (
+                    <button
+                      key={loc}
+                      onClick={() => {
+                        setLocale(loc);
+                        setLangOpen(false);
+                      }}
+                      className={`w-full flex items-center gap-2 px-4 py-2 text-sm hover:bg-orange-50 transition-colors ${
+                        locale === loc ? "text-orange-500 font-semibold" : "text-slate-700"
+                      }`}
+                    >
+                      <span>{localeFlags[loc]}</span>
+                      <span>{localeNames[loc]}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <a
               href="tel:+8218998384"
               className="flex items-center gap-2 text-sm"
@@ -98,7 +147,7 @@ export default function Header() {
                 background: "linear-gradient(135deg, #F97316, #EA580C)",
               }}
             >
-              무료 상담
+              {t("nav.consult")}
             </a>
           </div>
 
@@ -109,7 +158,7 @@ export default function Header() {
             style={{
               color: scrolled ? "#475569" : "white",
             }}
-            aria-label="메뉴 열기"
+            aria-label="Menu"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -141,6 +190,31 @@ export default function Header() {
                 {item.label}
               </a>
             ))}
+
+            {/* Mobile Language Switcher */}
+            <div className="px-4 py-3">
+              <div className="flex flex-wrap gap-2">
+                {(Object.keys(localeNames) as Locale[]).map((loc) => (
+                  <button
+                    key={loc}
+                    onClick={() => {
+                      setLocale(loc);
+                    }}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+                      locale === loc
+                        ? "bg-orange-500 text-white"
+                        : scrolled
+                        ? "bg-slate-100 text-slate-700"
+                        : "bg-white/10 text-white"
+                    }`}
+                  >
+                    <span>{localeFlags[loc]}</span>
+                    <span>{localeNames[loc]}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
             <div className="mt-4 px-4">
               <a
                 href="#contact"
@@ -149,7 +223,7 @@ export default function Header() {
                   background: "linear-gradient(135deg, #F97316, #EA580C)",
                 }}
               >
-                무료 상담 신청
+                {t("nav.consultApply")}
               </a>
             </div>
           </div>

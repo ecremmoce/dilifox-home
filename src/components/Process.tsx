@@ -8,41 +8,44 @@ import {
   Tag,
   Truck,
 } from "lucide-react";
-
-const steps = [
-  {
-    icon: ClipboardCheck,
-    title: "접수",
-    description: "온라인 접수 및 물류 상담",
-    detail: "웹/앱을 통한 간편 접수",
-  },
-  {
-    icon: PackageSearch,
-    title: "입고·검수",
-    description: "상품 입고 및 품질 검수",
-    detail: "사진 촬영·수량 확인",
-  },
-  {
-    icon: PackageCheck,
-    title: "포장",
-    description: "안전 재포장 처리",
-    detail: "국제 배송 최적화 포장",
-  },
-  {
-    icon: Tag,
-    title: "라벨링",
-    description: "국제 라벨 부착",
-    detail: "국가별 규격 라벨 처리",
-  },
-  {
-    icon: Truck,
-    title: "출고·배송",
-    description: "전 세계 배송 출고",
-    detail: "실시간 배송 추적 제공",
-  },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export default function Process() {
+  const { t } = useLanguage();
+
+  const steps = [
+    {
+      icon: ClipboardCheck,
+      title: t("process.step1"),
+      description: t("process.step1.desc"),
+      detail: t("process.step1.detail"),
+    },
+    {
+      icon: PackageSearch,
+      title: t("process.step2"),
+      description: t("process.step2.desc"),
+      detail: t("process.step2.detail"),
+    },
+    {
+      icon: PackageCheck,
+      title: t("process.step3"),
+      description: t("process.step3.desc"),
+      detail: t("process.step3.detail"),
+    },
+    {
+      icon: Tag,
+      title: t("process.step4"),
+      description: t("process.step4.desc"),
+      detail: t("process.step4.detail"),
+    },
+    {
+      icon: Truck,
+      title: t("process.step5"),
+      description: t("process.step5.desc"),
+      detail: t("process.step5.detail"),
+    },
+  ];
+
   return (
     <section id="process" className="min-h-screen flex items-center bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
@@ -54,14 +57,13 @@ export default function Process() {
           transition={{ duration: 0.6 }}
         >
           <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">
-            Process
+            {t("process.label")}
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mt-3 mb-5">
-            물류 처리 프로세스
+            {t("process.title")}
           </h2>
           <p className="text-slate-500 text-lg max-w-2xl mx-auto">
-            접수부터 배송까지, 체계적인 5단계 프로세스로 안전하고 빠르게
-            처리합니다.
+            {t("process.subtitle")}
           </p>
         </motion.div>
 
@@ -73,7 +75,7 @@ export default function Process() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-4">
             {steps.map((step, index) => (
               <motion.div
-                key={step.title}
+                key={index}
                 className="relative"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}

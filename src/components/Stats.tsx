@@ -2,13 +2,7 @@
 
 import { motion, animate } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-
-const stats = [
-  { value: 15, suffix: "년+", label: "물류 업력", description: "축적된 전문성" },
-  { value: 160, suffix: "만건+", label: "누적 배송", description: "검증된 실적" },
-  { value: 30, suffix: "개국+", label: "배송 국가", description: "글로벌 네트워크" },
-  { value: 99.2, suffix: "%", label: "정시 배송률", description: "신뢰의 기준" },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
 
 function Counter({ value, suffix }: { value: number; suffix: string }) {
   const [display, setDisplay] = useState("0");
@@ -51,6 +45,15 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 }
 
 export default function Stats() {
+  const { t } = useLanguage();
+
+  const stats = [
+    { value: 15, suffix: "년+", label: t("stats.years"), description: t("stats.years.desc") },
+    { value: 160, suffix: "만건+", label: t("stats.deliveries"), description: t("stats.deliveries.desc") },
+    { value: 30, suffix: "개국+", label: t("stats.countries"), description: t("stats.countries.desc") },
+    { value: 99.2, suffix: "%", label: t("stats.rate"), description: t("stats.rate.desc") },
+  ];
+
   return (
     <section id="stats" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background */}
@@ -72,20 +75,20 @@ export default function Stats() {
           transition={{ duration: 0.6 }}
         >
           <span className="text-orange-400 font-semibold text-sm tracking-wider uppercase">
-            Track Record
+            {t("stats.label")}
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-3 mb-5">
-            숫자로 증명하는 신뢰
+            {t("stats.title")}
           </h2>
           <p className="text-slate-300 text-lg max-w-2xl mx-auto">
-            오랜 경험과 실적으로 쌓아온 글로벌 물류 네트워크
+            {t("stats.subtitle")}
           </p>
         </motion.div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {stats.map((stat, index) => (
             <motion.div
-              key={stat.label}
+              key={index}
               className="text-center bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 lg:p-10"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}

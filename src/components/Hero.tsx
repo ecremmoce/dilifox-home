@@ -3,26 +3,29 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Plane, Warehouse, ShoppingBag } from "lucide-react";
 import ParticleCanvas from "./ParticleCanvas";
-
-const services = [
-  {
-    icon: Plane,
-    label: "항공특송",
-    href: "#service-air",
-  },
-  {
-    icon: Warehouse,
-    label: "3PL 풀필먼트",
-    href: "#service-3pl",
-  },
-  {
-    icon: ShoppingBag,
-    label: "상품공급·판매",
-    href: "#service-sales",
-  },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export default function Hero() {
+  const { t } = useLanguage();
+
+  const services = [
+    {
+      icon: Plane,
+      label: t("hero.airExpress"),
+      href: "#service-air",
+    },
+    {
+      icon: Warehouse,
+      label: t("hero.fulfillment"),
+      href: "#service-3pl",
+    },
+    {
+      icon: ShoppingBag,
+      label: t("hero.supply"),
+      href: "#service-sales",
+    },
+  ];
+
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -57,7 +60,7 @@ export default function Hero() {
         >
           <span className="inline-flex items-center gap-2 bg-orange-500/15 border border-orange-500/25 text-orange-300 px-4 py-2 rounded-full text-sm font-medium mb-6">
             <span className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" />
-            160만건+ 배송 실적의 글로벌 물류 파트너
+            {t("hero.badge")}
           </span>
         </motion.div>
 
@@ -68,7 +71,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
         >
-          글로벌 물류 최적화 서비스
+          {t("hero.title")}
         </motion.h1>
 
         {/* Brand Name */}
@@ -97,9 +100,9 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.45 }}
         >
-          국내 구매부터 해외 출고까지, 당일 원스톱 물류 대행
+          {t("hero.subtitle1")}
           <br />
-          항공특송부터 3PL 풀필먼트, 상품공급·판매까지
+          {t("hero.subtitle2")}
         </motion.p>
 
         {/* CTA Button */}
@@ -113,7 +116,7 @@ export default function Hero() {
             href="#contact"
             className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-10 py-4 rounded-full font-semibold text-lg hover:shadow-2xl hover:shadow-orange-500/30 transition-all hover:scale-105"
           >
-            서비스 바로가기
+            {t("hero.cta")}
             <ArrowRight className="w-5 h-5" />
           </a>
         </motion.div>
@@ -127,7 +130,7 @@ export default function Hero() {
         >
           {services.map((service, index) => (
             <motion.a
-              key={service.label}
+              key={index}
               href={service.href}
               className="flex flex-col items-center gap-3 group cursor-pointer"
               whileHover={{ y: -5 }}
