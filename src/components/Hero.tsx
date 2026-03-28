@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Plane, Warehouse, ShoppingBag } from "lucide-react";
+import { ArrowRight, Plane, Warehouse, ShoppingBag, Radio } from "lucide-react";
 import ParticleCanvas from "./ParticleCanvas";
 import { useLanguage } from "@/i18n/LanguageContext";
 
@@ -23,6 +23,11 @@ export default function Hero() {
       icon: ShoppingBag,
       label: t("hero.supply"),
       href: "#service-sales",
+    },
+    {
+      icon: Radio,
+      label: t("hero.livePacking"),
+      href: "#service-live",
     },
   ];
 
@@ -150,7 +155,7 @@ export default function Hero() {
                   strokeWidth={1.5}
                 />
               </div>
-              <span className="text-white font-bold text-sm sm:text-base lg:text-lg">
+              <span className="text-white font-bold text-sm sm:text-base lg:text-lg whitespace-pre-line text-center">
                 {service.label}
               </span>
             </motion.a>

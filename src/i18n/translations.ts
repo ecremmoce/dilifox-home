@@ -29,6 +29,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     "hero.airExpress": "항공특송",
     "hero.fulfillment": "3PL 풀필먼트",
     "hero.supply": "상품공급·판매",
+    "hero.livePacking": "라이브방송\n합포장 배송",
 
     // Services
     "service.air.label": "AIR EXPRESS",
@@ -72,6 +73,20 @@ export const translations: Record<Locale, Record<string, string>> = {
     "service.sales.feat3": "판매 채널 확장 컨설팅",
     "service.sales.feat4": "재고 연동 시스템",
     "service.sales.feat5": "통합 CS 지원",
+
+    "service.live.label": "LIVE PACKING & DELIVERY",
+    "service.live.title": "라이브방송\n합포장 배송",
+    "service.live.subtitle": "라이브 방송 주문 상품을\n합포장하여 빠르고 정확하게 배송합니다.",
+    "service.live.step1": "라이브 주문 접수",
+    "service.live.step2": "상품 피킹",
+    "service.live.step3": "합포장 처리",
+    "service.live.step4": "송장 출력·부착",
+    "service.live.step5": "당일 출고·배송",
+    "service.live.feat1": "라이브방송 실시간 주문 연동",
+    "service.live.feat2": "다품목 합포장 전문",
+    "service.live.feat3": "당일 출고 보장",
+    "service.live.feat4": "오포장·누락 방지 시스템",
+    "service.live.feat5": "방송별 맞춤 포장 서비스",
 
     "service.cta": "상담 문의하기",
 
@@ -217,6 +232,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     "hero.airExpress": "Air Express",
     "hero.fulfillment": "3PL Fulfillment",
     "hero.supply": "Supply & Sales",
+    "hero.livePacking": "Live Commerce\nPacking & Delivery",
 
     "service.air.label": "AIR EXPRESS",
     "service.air.title": "Air Express",
@@ -259,6 +275,20 @@ export const translations: Record<Locale, Record<string, string>> = {
     "service.sales.feat3": "Sales channel expansion consulting",
     "service.sales.feat4": "Inventory sync system",
     "service.sales.feat5": "Integrated CS support",
+
+    "service.live.label": "LIVE PACKING & DELIVERY",
+    "service.live.title": "Live Commerce\nPacking & Delivery",
+    "service.live.subtitle": "We consolidate live broadcast orders\ninto combined packages for fast, accurate delivery.",
+    "service.live.step1": "Live Order Received",
+    "service.live.step2": "Product Picking",
+    "service.live.step3": "Combined Packing",
+    "service.live.step4": "Label Print & Attach",
+    "service.live.step5": "Same-day Shipping",
+    "service.live.feat1": "Real-time live commerce order sync",
+    "service.live.feat2": "Multi-item combined packing specialist",
+    "service.live.feat3": "Same-day shipping guaranteed",
+    "service.live.feat4": "Mis-packing prevention system",
+    "service.live.feat5": "Custom packing per broadcast",
 
     "service.cta": "Contact Us",
 
@@ -397,6 +427,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     "hero.airExpress": "航空快递",
     "hero.fulfillment": "3PL仓配",
     "hero.supply": "供应·销售",
+    "hero.livePacking": "直播合包配送",
 
     "service.air.label": "AIR EXPRESS",
     "service.air.title": "航空快递",
@@ -439,6 +470,20 @@ export const translations: Record<Locale, Record<string, string>> = {
     "service.sales.feat3": "销售渠道拓展咨询",
     "service.sales.feat4": "库存同步系统",
     "service.sales.feat5": "综合售后支持",
+
+    "service.live.label": "LIVE PACKING & DELIVERY",
+    "service.live.title": "直播合包配送",
+    "service.live.subtitle": "将直播订单商品合包，\n快速准确地配送。",
+    "service.live.step1": "直播订单接收",
+    "service.live.step2": "商品拣选",
+    "service.live.step3": "合包处理",
+    "service.live.step4": "打印·贴标",
+    "service.live.step5": "当日发货·配送",
+    "service.live.feat1": "直播订单实时同步",
+    "service.live.feat2": "多品类合包专业服务",
+    "service.live.feat3": "当日发货保障",
+    "service.live.feat4": "防错包·防漏发系统",
+    "service.live.feat5": "按直播场次定制包装",
 
     "service.cta": "咨询联系",
 
@@ -577,6 +622,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     "hero.airExpress": "Hàng không",
     "hero.fulfillment": "3PL",
     "hero.supply": "Cung cấp & Bán",
+    "hero.livePacking": "Livestream\nĐóng gói & Giao",
 
     "service.air.label": "AIR EXPRESS",
     "service.air.title": "Chuyển phát nhanh hàng không",
@@ -619,6 +665,20 @@ export const translations: Record<Locale, Record<string, string>> = {
     "service.sales.feat3": "Tư vấn mở rộng kênh bán",
     "service.sales.feat4": "Hệ thống đồng bộ tồn kho",
     "service.sales.feat5": "Hỗ trợ CSKH tích hợp",
+
+    "service.live.label": "LIVE PACKING & DELIVERY",
+    "service.live.title": "Livestream\nĐóng gói & Giao hàng",
+    "service.live.subtitle": "Gộp đơn hàng từ livestream,\nđóng gói nhanh chóng và giao hàng chính xác.",
+    "service.live.step1": "Nhận đơn livestream",
+    "service.live.step2": "Lấy hàng",
+    "service.live.step3": "Đóng gói gộp",
+    "service.live.step4": "In & dán nhãn",
+    "service.live.step5": "Giao trong ngày",
+    "service.live.feat1": "Đồng bộ đơn hàng livestream",
+    "service.live.feat2": "Chuyên đóng gói gộp đa sản phẩm",
+    "service.live.feat3": "Đảm bảo giao trong ngày",
+    "service.live.feat4": "Hệ thống chống sai sót đóng gói",
+    "service.live.feat5": "Đóng gói tùy chỉnh theo buổi phát",
 
     "service.cta": "Liên hệ tư vấn",
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Plane, Warehouse, ShoppingBag, ArrowRight } from "lucide-react";
+import { Plane, Warehouse, ShoppingBag, Radio, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 export default function Services() {
@@ -76,6 +76,29 @@ export default function Services() {
         t("service.sales.feat5"),
       ],
       image: "/images/service-sales.jpg",
+    },
+    {
+      id: "04",
+      anchor: "service-live",
+      icon: Radio,
+      label: t("service.live.label"),
+      title: t("service.live.title"),
+      subtitle: t("service.live.subtitle"),
+      steps: [
+        t("service.live.step1"),
+        t("service.live.step2"),
+        t("service.live.step3"),
+        t("service.live.step4"),
+        t("service.live.step5"),
+      ],
+      features: [
+        t("service.live.feat1"),
+        t("service.live.feat2"),
+        t("service.live.feat3"),
+        t("service.live.feat4"),
+        t("service.live.feat5"),
+      ],
+      image: "/images/service-live.jpg",
     },
   ];
 
